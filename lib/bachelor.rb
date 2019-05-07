@@ -42,18 +42,15 @@ end
 
 
 
+
 def get_average_age_for_season(data, season)
-  age = 0
-  count= 0
-  data[season].each do |array|
-      array.each do |key, value|
-        #increase the count in each season
-        count += 1
-        #get the value of the age 
-        #add the ages of every season and turn them into floor value so we can devide decimal number
-        age += array["age"].to_f
-      end
+  total_age = 0
+  i = 0
+  data[season].each do |contestants|
+    contestants.each do |info, values|
+      i += 1
+      total_age += contestants["age"].to_f
+    end
   end
-  #average = age/count and round the number
-  (age/count).round
+    (total_age/i).round
 end
